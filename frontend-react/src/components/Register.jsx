@@ -43,7 +43,7 @@ const Register = () => {
       <div className="row justify-content-center">
         <div className="col-md-6 bg-light-dark p-5 rounded mt-5">
 
-          <h3 className="text-light text-center mb-4"> Create an Account </h3>
+          <h3 className="text-info text-center mb-4"> Create an Account </h3>
 
           <form onSubmit={handleRegistration}>
                       {errors.general && <div className="alert alert-danger text-center">{errors.general}</div>}

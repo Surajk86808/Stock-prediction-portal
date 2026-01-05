@@ -1,12 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
 
-const Button = (props) => {
+
+import { Link } from "react-router-dom";
+
+const Button = ({ text, class: className, url, onClick }) => {
+  // If url exists → navigation button
+  if (url) {
+    return (
+      <Link to={url} className={`btn ${className}`}>
+        {text}
+      </Link>
+    );
+  }
+
+  // Otherwise → action button (logout)
   return (
-    <Link className={`btn ${props.class}`} to={props.url}>
-      {props.text}
-    </Link>
-  )
-}
+    <button
+      type="button"
+      className={`btn ${className}`}
+      onClick={onClick}
+    >
+      {text}
+    </button>
+  );
+};
 
-export default Button
+export default Button;
+
