@@ -9,6 +9,7 @@ import AuthProvider from './AuthProvider.jsx'
 import Dashboard from './components/dashboard/Dashboard.jsx'
 import PrivateRoute from './PrivateRoute.jsx'
 import PublicRoute from './PublicRoute.jsx'
+import NotFound from './components/NotFound.jsx'
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
              <Route path='/' element={<Main />} />
              <Route path='/register' element={<PublicRoute><Register /></PublicRoute>} />
              <Route path='/login' element={<PublicRoute><Login /></PublicRoute>} />
-             <Route path='/dashboard' element={ <PrivateRoute><Dashboard /></PrivateRoute>} />
+             <Route path='/dashboard' element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+             <Route path="*" element={<NotFound />} />
          </Routes>
         <Footer />
       </BrowserRouter>

@@ -279,3 +279,5 @@ thumb
 sketch
 
 # End of
+# dont add Resources files
+/Resources/

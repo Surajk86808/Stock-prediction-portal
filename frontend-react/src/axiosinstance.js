@@ -37,7 +37,7 @@ axiosInstance.interceptors.response.use(
         console.error('Error occurred in the API call:', error);
         if (error.response.status === 401 && !originalRequest.retry) {
             originalRequest.retry = true;
-            const refreshToken = localStorage.getItem('refreshToken');
+            const refreshToken = localStorage.getItem('refresh_token');
 
             try {
             const response = await axiosInstance.post(
@@ -45,15 +45,15 @@ axiosInstance.interceptors.response.use(
              { refresh: refreshToken }
             );
             console.log('Token refreshed successfully:', response.data.access);
-            localStorage.setItem('accessToken', response.data.access);
+            localStorage.setItem('access_token', response.data.access);
             originalRequest.headers['Authorization'] =
             `Bearer ${response.data.access}`;
 
             return axiosInstance(originalRequest);
 
             } catch (error) {
-               localStorage.removeItem('accessToken');
-               localStorage.removeItem('refreshToken');
+               localStorage.removeItem('access_token');
+               localStorage.removeItem('refresh_token');
                window.location.href = '/login';
                console.error('Error occurred in the API call:', error); 
            }
